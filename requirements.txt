@@ -1,0 +1,11 @@
+pathlib
+streamlit
+pandas
+datetime
+plotly.express
+collections
+re
+wordcloud
+nltk.corpus
+nltk
+matplotlib.pyplot
