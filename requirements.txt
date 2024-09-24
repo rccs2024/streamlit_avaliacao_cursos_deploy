@@ -1,11 +1,8 @@
 pathlib
 streamlit
 pandas
-datetime
-plotly.express
-re
+plotly
 wordcloud
-nltk.corpus
 nltk
-matplotlib.pyplot
+matplotlib
 
