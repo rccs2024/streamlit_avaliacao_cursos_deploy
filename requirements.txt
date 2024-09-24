@@ -5,4 +5,5 @@ plotly
 wordcloud
 nltk
 matplotlib
+openpyxl
 
