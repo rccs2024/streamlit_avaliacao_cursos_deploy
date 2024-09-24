@@ -5,9 +5,11 @@ from datetime import datetime, date
 import plotly.express as px
 from collections import Counter
 import re
+import nltk
+nltk.download('stopwords')
 from wordcloud import WordCloud
 from nltk.corpus import stopwords
-import nltk
+
 import matplotlib.pyplot as plt
 
 # Definindo o layout da página Home
