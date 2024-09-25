@@ -56,8 +56,8 @@ st.markdown("""
 #exportando tabelas e tratanto 
 
 
-df_geral = pd.read_excel('df_analise.xlsx', decimal='.')
-df_comentarios = pd.read_excel('df_comentarios.xlsx', decimal='.')
+df_geral = pd.read_excel('pages/df_analise.xlsx', decimal='.')
+df_comentarios = pd.read_excel('pages/df_comentarios.xlsx', decimal='.')
 
 #st.sidebar.image("img/ufma.png", use_column_width=True)
 

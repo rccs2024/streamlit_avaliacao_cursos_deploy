@@ -9,8 +9,8 @@ st.set_page_config(page_title="Dashboard Interativo", layout="wide")
 
 # Importando os dataframes
 
-df_geral = pd.read_excel('df_analise.xlsx', decimal='.')
-df_comentarios = pd.read_excel('df_comentarios.xlsx', decimal='.')
+df_geral = pd.read_excel('pages/df_analise.xlsx', decimal='.')
+df_comentarios = pd.read_excel('pages/df_comentarios.xlsx', decimal='.')
 
 st.markdown("""
     <style>
