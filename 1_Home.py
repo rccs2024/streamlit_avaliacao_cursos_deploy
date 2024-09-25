@@ -43,8 +43,8 @@ st.markdown("""
 ###### importando o dataframa Alunos e tratando as colunas #############
 #exportando tabelas e tratanto 
 
-df_geral = pd.read_excel('../bd/df_analise.xlsx', decimal='.')
-df_comentarios = pd.read_excel('../bd/df_comentarios.xlsx', decimal='.')
+
+
 
 # Adicionando o título principal
 st.title("Dashboard de Avaliação de Cursos")
