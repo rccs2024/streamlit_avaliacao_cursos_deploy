@@ -14,12 +14,37 @@ import matplotlib.pyplot as plt
 
 # Definindo o layout da página Home
 st.set_page_config(page_title="Dashboard Interativo", layout="wide")
+st.markdown("""
+    <style>
+    /* Estilo da barra lateral */
+    [data-testid="stSidebar"] {
+        background-color: #8d0333;  /* Usando a cor primária da UFMA */
+    }
+
+    /* Estilo do texto dos itens do menu usando a classe inspecionada */
+    [data-testid="stSidebar"] .eczjsme5 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #FFFFFF !important; /* Define a cor do texto para branco */
+    }
+
+    /* Estilo padrão para os elementos de input como selectbox e button */
+    [data-testid="stSidebar"] .stSelectbox, 
+    [data-testid="stSidebar"] button {
+        color: black !important;
+    }
+    /* Mudando a cor do texto que fica em cima do selectbox */
+    [data-testid="stSidebar"] p {
+        color: white; /* Altere para a cor que preferir */
+        font-weight: bold; /* Fazendo o texto ficar em negrito */
+    </style>
+    """, unsafe_allow_html=True)
 
 ###### importando o dataframa Alunos e tratando as colunas #############
 #exportando tabelas e tratanto 
 
-#df_geral = pd.read_excel('../bd/df_analise.xlsx', decimal='.')
-#df_comentarios = pd.read_excel('../bd/df_comentarios.xlsx', decimal='.')
+df_geral = pd.read_excel('../bd/df_analise.xlsx', decimal='.')
+df_comentarios = pd.read_excel('../bd/df_comentarios.xlsx', decimal='.')
 
 # Adicionando o título principal
 st.title("Dashboard de Avaliação de Cursos")

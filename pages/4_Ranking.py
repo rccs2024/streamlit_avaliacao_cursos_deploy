@@ -8,8 +8,36 @@ import plotly.express as px
 st.set_page_config(page_title="Dashboard Interativo", layout="wide")
 
 # Importando os dataframes
-df_geral = pd.read_excel('pages/df_analise.xlsx', decimal='.')
-df_comentarios = pd.read_excel('pages/df_comentarios.xlsx', decimal='.')
+df_geral = pd.read_excel('../bd/df_analise.xlsx', decimal='.')
+df_comentarios = pd.read_excel('../bd/df_comentarios.xlsx', decimal='.')
+
+st.markdown("""
+    <style>
+    /* Estilo da barra lateral */
+    [data-testid="stSidebar"] {
+        background-color: #8d0333;  /* Usando a cor primária da UFMA */
+    }
+
+    /* Estilo do texto dos itens do menu usando a classe inspecionada */
+    [data-testid="stSidebar"] .eczjsme5 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #FFFFFF !important; /* Define a cor do texto para branco */
+    }
+
+    /* Estilo padrão para os elementos de input como selectbox e button */
+    [data-testid="stSidebar"] .stSelectbox, 
+    [data-testid="stSidebar"] button {
+        color: black !important;
+    }
+    /* Mudando a cor do texto que fica em cima do selectbox */
+    [data-testid="stSidebar"] p {
+        color: white; /* Altere para a cor que preferir */
+        font-weight: bold; /* Fazendo o texto ficar em negrito */
+    </style>
+        
+            
+    """, unsafe_allow_html=True)
 
 # Título e Divisor
 st.markdown('# Ranking')
@@ -77,12 +105,12 @@ elif tipo_ranking == "Ranking de Turma":
     ranking_cursos = comparativo_aprovados[['Turma', 'Score', 'Total_Avaliacao', 'Percentual_Avaliação']].sort_values(by='Score', ascending=False).reset_index(drop=True)
     
     # Adicionar a coluna de classificação
-    ranking_cursos['Colocação'] = ranking_cursos['Score'].rank(ascending=False).astype(int)
+    ranking_cursos['Colocação'] = ranking_cursos['Score'].rank(ascending=False).astype(int).reset_index(drop=True)
     
     # Exibir o DataFrame
     st.markdown("### Ranking de Turmas")
-    st.dataframe(ranking_cursos[['Colocação', 'Turma', 'Score', 'Total_Avaliacao', 'Percentual_Avaliação']].style.format({"Score": "{:.2f}", "Percentual_Avaliação": "{:.2f}"}), use_container_width=True)
-
+    #st.dataframe(ranking_cursos[['Colocação', 'Turma', 'Score', 'Total_Avaliacao', 'Percentual_Avaliação']].style.format({"Score": "{:.2f}", "Percentual_Avaliação": "{:.2f}"}), use_container_width=True)
+    st.dataframe(ranking_cursos[['Colocação', 'Turma', 'Score']].style.format({"Score": "{:.2f}", "Percentual_Avaliação": "{:.2f}"}), use_container_width=True)
 # Rodapé
 st.markdown("<div style='position: fixed; bottom: 0; width: 100%; text-align: center; color: grey;'>Desenvolvido pela equipe da Divisão de Capacitação e Desenvolvimento da UFMA</div>", unsafe_allow_html=True)
 st.markdown("<div style='position: fixed; bottom: 0; right: 0; color: grey;'>Última atualização: 20/09/2024</div>", unsafe_allow_html=True)
